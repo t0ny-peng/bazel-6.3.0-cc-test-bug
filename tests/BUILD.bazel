@@ -1,0 +1,11 @@
+load("@rules_cc//cc:defs.bzl", "cc_binary", "cc_library", "cc_test")
+
+cc_test(
+    name = "test",
+    srcs = ["tests.cpp"],
+    deps = ["//main:main"],
+    env = {
+        "MY_ENV": "$(location //main:main)",
+    },
+)
+
